@@ -1,0 +1,23 @@
+[versions]
+springBoot = "3.5.0"
+springDependencyManagement = "1.1.7"
+kafkaClients = "3.9.0"
+opentelemetry = "1.46.0"
+spotless = "7.0.3"
+junit = "5.12.2"
+
+[libraries]
+spring-boot-autoconfigure        = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-boot-configuration-processor = { module = "org.springframework.boot:spring-boot-configuration-processor" }
+spring-boot-starter-web          = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-actuator     = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-test         = { module = "org.springframework.boot:spring-boot-starter-test" }
+spring-kafka                     = { module = "org.springframework.kafka:spring-kafka" }
+kafka-clients                    = { module = "org.apache.kafka:kafka-clients", version.ref = "kafkaClients" }
+opentelemetry-api                = { module = "io.opentelemetry:opentelemetry-api", version.ref = "opentelemetry" }
+junit-jupiter                    = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+
+[plugins]
+spring-boot                 = { id = "org.springframework.boot", version.ref = "springBoot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "springDependencyManagement" }
+spotless                    = { id = "com.diffplug.spotless", version.ref = "spotless" }

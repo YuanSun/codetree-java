@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: kafka-lag-autoscaler-demo
+
+kafka:
+  lag:
+    autoscaler:
+      consumer-group: demo-group
+      topic: demo-topic
+      bootstrap-servers: localhost:9092  # unused — SyntheticLagProvider overrides LagProvider
+      initial-instances: 2
+      poll-interval-ms: 2000
+
+      scale-up-lag-threshold: 10000
+      scale-up-window-ms: 4000
+      scale-up-step: 2
+      max-instances: 10
+      scale-up-cooldown-ms: 6000
+
+      scale-down-lag-threshold: 1000
+      scale-down-window-ms: 6000
+      scale-down-step: 1
+      min-instances: 1
+      scale-down-cooldown-ms: 12000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
